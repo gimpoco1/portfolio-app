@@ -12,7 +12,7 @@ body {
 }
 
 html {
-	scroll-behavior: smooth;
+	scroll-behavior:smooth;
 }
 
 p {
@@ -90,7 +90,7 @@ a:hover {
 	width: 100%;
 	height: 2px;
 	background-color: black;
-	transition: all 0.3 ease-in-out;
+	transition: all 2 ease-in-out;
 }
 
 .menu-links {
@@ -101,7 +101,7 @@ a:hover {
 	width: fit-content;
 	max-height: 0;
 	overflow: hidden;
-	transition: all 0.3 ease-in-out;
+	transition: all 0.5s ease-in-out;
 }
 
 .menu-links a {
@@ -166,7 +166,7 @@ section {
 	display: flex;
 	justify-content: center;
 	gap: 5rem;
-	height: 80vh;
+	height: 70vh;
 }
 
 .section__pic-container {
@@ -175,6 +175,9 @@ section {
 	width: 400px;
 	margin: auto 0;
 }
+img {
+    border-radius: 50%;
+  }
 
 .section__text {
 	align-self: center;
@@ -285,6 +288,8 @@ section {
 
 .about-pic {
 	border-radius: 2rem;
+    padding-left: 13px;
+  
 }
 
 .arrow {
@@ -292,6 +297,17 @@ section {
 	right: -5rem;
 	bottom: 2.5rem;
 }
+.text-container{
+    text-align: center;
+    padding: 1rem;
+    font-size:large;
+}
+
+.first-letter {
+    color: black;
+    font-weight: 500;
+    /* Customize other styles as needed, KYSO */
+  }
 
 .details-container {
 	padding: 1.5rem;
@@ -304,7 +320,7 @@ section {
 }
 
 .section-container {
-	gap: 4rem;
+	gap: 2rem;
 	height: 80%;
 }
 
@@ -345,7 +361,7 @@ section {
 article {
 	display: flex;
 	width: 10rem;
-	justify-content: space-around;
+	/* justify-content: space-around; */
 	gap: 0.5rem;
 }
 
@@ -353,6 +369,19 @@ article .icon {
 	cursor: default;
 }
 
+.certifications-details-container{
+    display:flex;
+	justify-content: center;
+	flex-direction: column;
+}
+.article-container-certifications{
+    display: flex;
+    text-align: initial;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 1.2rem;
+    justify-content: space-around;
+}
 /* PROJECTS SECTION */
 
 #projects {
@@ -387,6 +416,7 @@ article .icon {
 	justify-content: center;
 	flex-direction: column;
 	height: 70vh;
+    
 }
 
 .contact-info-upper-container {
@@ -406,8 +436,11 @@ article .icon {
 	justify-content: center;
 	gap: 0.5rem;
 	margin: 1rem;
-}
+    cursor: pointer;
 
+}
+.contact-info-container img {
+cursor: pointer;}
 .contact-info-container p {
 	font-size: larger;
 }

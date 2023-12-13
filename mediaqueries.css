@@ -1,6 +1,6 @@
-@media screen and (max-width: 1400px) {
+@media screen and (min-width: 1210px) {
     #profile {
-      height: 83vh;
+      height: 60vh;
       margin-bottom: 6rem;
     }
     .about-containers {
@@ -10,6 +10,21 @@
     #projects {
       height: fit-content;
     }
+ 
+    .experience-details-container {
+        margin-top: 2rem;
+        padding: 4rem;
+        padding-top: 2rem;
+        padding-bottom: 10rem;
+
+
+      }
+      .certifications-details-container {
+        margin-top: 2rem;
+        padding: 4rem;
+        padding-top: 2rem;
+        padding-bottom: 18rem;
+      }
   }
   
   @media screen and (max-width: 1200px) {
@@ -19,7 +34,6 @@
     #hamburger-nav {
       display: flex;
     }
-    #experience,
     .experience-details-container {
       margin-top: 2rem;
     }
