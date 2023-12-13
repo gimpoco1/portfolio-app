@@ -1,6 +1,6 @@
-@media screen and (min-width: 1210px) {
+@media screen and (max-width: 1400px) {
     #profile {
-      height: 60vh;
+      height: 80vh;
       margin-bottom: 6rem;
     }
     .about-containers {
@@ -9,27 +9,20 @@
     #contact,
     #projects {
       height: fit-content;
+      
     }
  
-    .experience-details-container {
-        margin-top: 2rem;
-        padding: 4rem;
-        padding-top: 2rem;
-        padding-bottom: 10rem;
-
-
-      }
-      .certifications-details-container {
-        margin-top: 2rem;
-        padding: 4rem;
-        padding-top: 2rem;
-        padding-bottom: 18rem;
-      }
   }
+    
   
   @media screen and (max-width: 1200px) {
     #desktop-nav {
       display: none;
+    }
+    #contact,
+    #projects {
+      height: fit-content;
+      padding-top: 3rem;
     }
     #hamburger-nav {
       display: flex;
