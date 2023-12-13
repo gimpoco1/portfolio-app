@@ -1,3 +1,4 @@
+AOS.init();
 function toggleMenu() {
 	const menu = document.querySelector(".menu-links");
 	const icon = document.querySelector(".hamburger-icon");
@@ -25,3 +26,8 @@ window.onload = function () {
         elements[i].innerHTML = modifiedContent;
     }
 };
+
+document.getElementById('theme-toggle').addEventListener('click', function() {
+    document.body.classList.toggle('dark');
+    console.log('clicked');
+});

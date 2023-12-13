@@ -7,6 +7,8 @@
 		<title>My Portfolio</title>
 		<link rel="stylesheet" href="style.css" />
 		<link rel="stylesheet" href="mediaqueries.css" />
+		<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 	</head>
 	<body>
 		<nav id="desktop-nav">
@@ -43,8 +45,8 @@
 			<div class="section__text">
 				<p class="section__text__p1">Hello, I'm</p>
 				<h1 class="title">Giacomo Impoco</h1>
-				<p class="section__text__p2">Web Developer</p>
-				<div class="btn-container">
+				<p data-aos="fade-up" class="section__text__p2">Web Developer</p>
+				<div data-aos="fade-up" class="btn-container">
 					<button
 						class="btn btn-color-2"
 						onclick="window.open('./assets/GiacomoImpocoResume4.pdf')"
@@ -55,7 +57,7 @@
 						Contact Info
 					</button>
 				</div>
-				<div id="socials-container">
+				<div data-aos="fade-up" id="socials-container">
 					<a href="https://www.linkedin.com/in/giacomoimpoco/" target="_blank">
 						<img
 							src="./assets/linkedin.png"
@@ -71,11 +73,11 @@
 				</div>
 			</div>
 		</section>
-		<section id="about">
+		<section data-aos="fade-up" id="about">
 			<p class="section__text__p1">Get to Know More</p>
 			<h1 class="title">About Me</h1>
 			<div class="section-container">
-				<div class="section__pic-container">
+				<div data-aos="fade-up" class="section__pic-container">
 					<img
 						src="./assets/mypic3.jpeg"
 						alt="Profile picture"
@@ -130,7 +132,7 @@
 				onclick="location.href='./#experience'"
 			/>
 		</section>
-		<section id="experience">
+		<section data-aos="fade-up" id="experience">
 			<p class="section__text__p1">Explore My</p>
 			<h1 class="title">Experience</h1>
 			<div class="experience-details-container">
@@ -273,7 +275,7 @@
 				class="icon arrow"
 				onclick="location.href='./#projects'"
 			/>
-			<section id="certifications">
+			<section data-aos="fade-up" id="certifications">
 				<p class="section__text__p1">My</p>
 				<h1 class="title">Certifications</h1>
 				<div class="certifications-details-container">
@@ -348,7 +350,7 @@
 			</section>
 		</section>
 
-		<section id="projects">
+		<section data-aos="fade-up" id="projects">
 			<p class="section__text__p1">Browse My Recent</p>
 			<h1 class="title">Projects</h1>
 			<div class="experience-details-container">
@@ -401,7 +403,7 @@
 				onclick="location.href='./#contact'"
 			/>
 		</section>
-		<section id="contact">
+		<section data-aos="fade-up" id="contact">
 			<p class="section__text__p1">Get in Touch</p>
 			<h1 class="title">Contact Me</h1>
 			<div class="contact-info-upper-container">
@@ -431,7 +433,7 @@
 		</section>
 		<footer>
 			<nav>
-				<div class="nav-links-container">
+				<div data-aos="fade-up" class="nav-links-container">
 					<ul class="nav-links">
 						<li><a href="#about">About</a></li>
 						<li><a href="#experience">Experience</a></li>
