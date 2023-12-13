@@ -9,7 +9,7 @@
     #contact,
     #projects {
       height: fit-content;
-      
+      padding-bottom: 10rem;
     }
  
   }
@@ -43,6 +43,7 @@
     }
     section {
       margin: 0 5%;
+      /* padding-bottom: 10rem; */
     }
     .section__pic-container {
       width: 275px;
@@ -105,6 +106,8 @@
       font-size: 2rem;
     }
     .text-container {
-      text-align: justify;
+      text-align: center;
     }
+
   }
+
