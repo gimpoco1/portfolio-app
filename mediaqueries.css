@@ -18,10 +18,10 @@
       display: block;
     }
     #profile {
-      padding-bottom: 10rem;
+      padding-bottom: 0rem;
     }
     #about{
-      padding-top: 10rem;
+      padding-top: 0rem;
     }
     .arrow {
       display: none;
@@ -61,16 +61,12 @@
 
     }
   }
-  @media screen and (max-width: 1024px) and (max-height: 600px) {
-    #profile {
-        margin-bottom: 20rem;
-    }
-  }
+
 
 
   @media screen and (max-height: 3000px) {
     #profile {
-        margin-bottom: 30rem;
+        margin-bottom: 20rem;
     }
 }
 
@@ -83,6 +79,7 @@
     #profile {
       height: 83vh;
       margin-bottom: 0;
+      size-adjust: auto;
     }
     article {
       font-size: 1rem;
