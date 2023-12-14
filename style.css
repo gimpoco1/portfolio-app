@@ -144,6 +144,9 @@ a:hover {
 	background-color: black;
 	transition: all 2 ease-in-out;
 }
+li a {
+    white-space: nowrap;
+}
 
 .menu-links {
 	position: absolute;
