@@ -41,6 +41,7 @@
     }
     .title-about{
       padding-bottom: 1rem;
+      padding-left: 18px;
     }
     .dynamic-txts{
       font-size: 15px;
@@ -48,6 +49,14 @@
     #certifications{
       padding-bottom: 10rem;
       padding-top: 5rem;
+    }
+    .about-pic{
+      margin-left: 18px;
+    }
+    .section__text__p1 {
+      font-size: 1.25rem;
+      padding-left: 18px;
+
     }
   }
   
