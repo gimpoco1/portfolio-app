@@ -12,7 +12,7 @@ body {
 }
 
 html {
-	scroll-behavior:smooth;
+	scroll-behavior: smooth;
 }
 
 p {
@@ -29,6 +29,58 @@ p {
 a,
 .btn {
 	transition: all 300ms ease;
+}
+
+.wrapper {
+	display: flex;
+	justify-content: center; 
+    align-items: center
+	
+}
+
+.wrapper .dynamic-txts {
+	margin-left: 15px;
+	height: 50px; 
+    line-height: 50px; 
+	overflow: hidden;
+	margin-bottom: 2rem;
+}
+.dynamic-txts li {
+	list-style: none;
+	font-size: 30px;
+	font-weight: 400;
+	color: rgb(85, 85, 85);
+	animation: slide 12s steps(4) infinite;
+	position: relative;
+	top: 0;
+}
+@keyframes slide {
+	100% {
+		top: -200px;
+	}
+}
+.dynamic-txts li span {
+	position: relative;
+	margin: 5px 0;
+	line-height: 50px;
+}
+.dynamic-txts li span::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: #fff;
+	border-left: 2px solid rgb(85, 85, 85);
+	animation: typing 3s steps(10) infinite;
+}
+@keyframes typing {
+	40%, 60%{
+		left: calc(100% + 20px);
+	}
+	100%{
+		left: 0;
+	}
 }
 
 /* DESKTOP NAV */
@@ -102,13 +154,12 @@ a:hover {
 	position: absolute;
 	top: 100%;
 	right: 0;
-	background: linear-gradient(300deg, white, transparent) ;
+	background: linear-gradient(300deg, white, transparent);
 	width: fit-content;
 	max-height: 0;
 	overflow: hidden;
 	transition: all 0.5s ease-in-out;
-    border-radius: 2rem;
-    
+	border-radius: 2rem;
 }
 
 .menu-links a {
@@ -184,8 +235,8 @@ section {
 	margin: auto 0;
 }
 img {
-    border-radius: 50%;
-  }
+	border-radius: 50%;
+}
 
 .section__text {
 	align-self: center;
@@ -198,15 +249,20 @@ img {
 
 .section__text__p1 {
 	text-align: center;
+	font-size: 18px
 }
 
-.section__text__p2 {
-	font-size: 1.75rem;
-	margin-bottom: 1rem;
-}
 
 .title {
 	font-size: 3rem;
+	text-align: center;
+}
+.title-about{
+	font-size: 3rem;
+	text-align: center;
+}
+.section__text__p1{
+	font-size: 15px;
 	text-align: center;
 }
 
@@ -263,7 +319,6 @@ img {
 .btn-color-2 {
 	background: none;
 	color: black;
-
 }
 
 .btn-color-2:hover {
@@ -278,8 +333,8 @@ img {
 
 #about {
 	position: relative;
-    padding-top: 5rem;
-    padding-bottom: 10rem;
+	padding-top: 5rem;
+	padding-bottom: 10rem;
 }
 
 .about-containers {
@@ -300,26 +355,25 @@ img {
 
 .about-pic {
 	border-radius: 2rem;
-    padding-left: 13px;
-  
 }
+
 
 .arrow {
 	position: absolute;
 	right: -5rem;
 	bottom: 2.5rem;
 }
-.text-container{
+.text-container {
 	text-align: center;
 	padding: 2rem;
-    font-size:large;
+	font-size: large;
 }
 
 .first-letter {
-    color: black;
-    font-weight: 500;
-    /* Customize other styles as needed, KYSO */
-  }
+	color: black;
+	font-weight: 500;
+	/* Customize other styles as needed, KYSO */
+}
 
 .details-container {
 	padding: 1.5rem;
@@ -345,8 +399,8 @@ img {
 /* EXPERIENCE SECTION */
 
 #experience {
-    position: relative;
-    padding-bottom: 10rem;
+	position: relative;
+	padding-bottom: 10rem;
 }
 
 .experience-sub-title {
@@ -381,37 +435,35 @@ article .icon {
 	cursor: default;
 }
 
-.certifications-details-container{
-    display:flex;
+.certifications-details-container {
+	display: flex;
 	justify-content: center;
 	flex-direction: column;
 }
-.article-container-certifications{
-    display: flex;
-    text-align: initial;
-    flex-wrap: wrap;
-    flex-direction: row;
-    gap: 1.2rem;
-    justify-content: space-around;
-
+.article-container-certifications {
+	display: flex;
+	text-align: initial;
+	flex-wrap: wrap;
+	flex-direction: row;
+	gap: 1.2rem;
+	justify-content: space-around;
 }
 /* PROJECTS SECTION */
 
 #projects {
 	position: relative;
-    padding-bottom: 10rem;
+	padding-bottom: 10rem;
 }
 
 .color-container {
 	border-color: rgb(163, 163, 163);
-	background: #fff
+	background: #fff;
 }
 
 .project-img {
 	border-radius: 2rem;
 	width: 90%;
 	height: 80%;
-    
 }
 
 .project-title {
@@ -432,7 +484,7 @@ article .icon {
 	flex-direction: column;
 	height: 70vh;
 	padding-top: 7rem;
-    
+	
 }
 
 .contact-info-upper-container {
@@ -452,11 +504,13 @@ article .icon {
 	justify-content: center;
 	gap: 0.5rem;
 	margin: 1rem;
-    cursor: pointer;
-
+	cursor: pointer;
+	padding-left: 20px;
+	
 }
 .contact-info-container img {
-cursor: pointer;}
+	cursor: pointer;
+}
 .contact-info-container p {
 	font-size: larger;
 }

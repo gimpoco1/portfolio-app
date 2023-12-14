@@ -1,18 +1,66 @@
+@media screen and (min-width: 1401px) {
+  #profile {
+    height: 80vh;
+    /* margin-bottom: 6rem; */
+  }
+  .about-containers {
+    flex-wrap: wrap;
+  }
+  #contact,
+  #experience{
+    height:fit-content;
+  padding: 1px;
+  padding-top: 10rem;
+    margin: 0 5%;
+
+  }
+  #projects{
+    height: fit-content;
+    padding-top: 0;
+  }
+
+  .about-containers {
+    padding: 0;
+  }
+  .title-about{
+    padding-bottom: 6rem;
+  }
+  #certifications{
+    padding-top: 20rem;
+  }
+}
 @media screen and (max-width: 1400px) {
     #profile {
       height: 80vh;
-      margin-bottom: 6rem;
+      /* margin-bottom: 6rem; */
     }
     .about-containers {
       flex-wrap: wrap;
     }
     #contact,
-    #projects {
-      height: fit-content;
-      padding-bottom: 10rem;
+    #experience{
+      height:fit-content;
+    padding: 1px;
+    padding-top: 10rem;
+      margin: 0 5%;
+
     }
- 
+    #projects{
+      height: fit-content;
+      padding-top: 0;
+    }
+
+    .about-containers {
+      padding: 0;
+    }
+    .title-about{
+      padding-bottom: 6rem;
+    }
+    #certifications{
+      padding-top: 20rem;
+    }
   }
+
     
   
   @media screen and (max-width: 1200px) {
@@ -34,6 +82,10 @@
     .section-container {
       display: block;
     }
+    #profile {
+      padding-bottom: 3rem;
+      margin-bottom: auto;
+    }
     .arrow {
       display: none;
     }
@@ -43,7 +95,6 @@
     }
     section {
       margin: 0 5%;
-      /* padding-bottom: 10rem; */
     }
     .section__pic-container {
       width: 275px;
@@ -53,12 +104,22 @@
     .about-containers {
       margin-top: 0;
     }
+    .title-about{
+      padding-bottom: 1rem;
+    }
+    .dynamic-txts{
+      font-size: 15px;
+    }
+    #certifications{
+      padding-bottom: 10rem;
+      padding-top: 5rem;
+    }
   }
   
   @media screen and (max-width: 600px) {
     #contact,
     footer {
-      height: 40vh;
+      height: 30vh;
     }
     #profile {
       height: 83vh;
@@ -102,12 +163,19 @@
     .section__text__p2 {
       font-size: 1.25rem;
     }
-    .title {
+    .title ,
+    .title-about {
       font-size: 2rem;
     }
     .text-container {
       text-align: center;
     }
-
+    #certifications{
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+    .dynamic-txts{
+      font-size: 15px;
+    }
   }
 
