@@ -11,8 +11,72 @@
 		<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+		<style>
+			path {
+				transform-origin: 50% 0%;
+			}
+			.background--custom {
+				background-color: #ffffff;
+				position: absolute;
+				width: 100vw;
+				height: 80vh;
+				z-index: -1;
+				top: 0;
+				left: 0;
+			}
+			@keyframes path0 {
+				0% {
+					transform: rotate(-10deg);
+				}
+				100% {
+					transform: rotate(10deg);
+				}
+			}
+			@keyframes path1 {
+				0% {
+					transform: rotate(-30deg);
+				}
+				100% {
+					transform: rotate(30deg);
+				}
+			}
+			@keyframes path2 {
+				0% {
+					transform: rotate(40deg);
+				}
+				100% {
+					transform: rotate(-40deg);
+				}
+			}
+		</style>
 	</head>
 	<body>
+		<svg
+			class="background--custom"
+			id="demo"
+			viewBox="0 0 100 100"
+			preserveAspectRatio="none"
+		>
+			<path
+				fill="#FFFF00"
+				fill-opacity="0.7"
+				d="M-100 -100L200 -100L200 50L-100 50Z"
+				style="animation: path0 5s linear infinite alternate"
+			/>
+			<path
+				fill="#00FFFF"
+				fill-opacity="0.6"
+				d="M-100 -100L200 -100L200 50L-100 50Z"
+				style="animation: path1 12.5s linear infinite alternate"
+			/>
+			<path
+				fill="#FF00FF"
+				fill-opacity="0.4"
+				d="M-100 -100L200 -100L200 20L-100 20Z"
+				style="animation: path2 30s linear infinite alternate"
+			/>
+		</svg>
+
 		<nav id="desktop-nav">
 			<div class="logo">Giacomo Impoco</div>
 			<div>
@@ -117,22 +181,24 @@
 					<div class="text-container each-word">
 						<p>
 							Originally from Italy, I moved out of the country when I was 17
-							and I've been soaking up London life for almost 7 years. <br><br> I kicked
-							off my career in customer service, starting as a waiter and chef
-							in a restaurant, and then working my way up to delivering customer
-							support to one of the UK's biggest company, John Lewis. <br><br>All along, I had this
-							itch to dive into software development, and here I am on that
-							journey to become a full-fledged developer. In my free time, I
-							love diving into tutorials and keeping up with the latest tech
-							trends. I'm like a sponge for learning, always staying in the loop
-							with what's happening in the tech world. I aspire to craft
-							innovative solutions and create my own impactful piece in the tech
-							landscape. <br><br>When it comes to work, I thrive in fast-paced,
+							and I've been soaking up London life for almost 7 years.
+							<br /><br />
+							I kicked off my career in customer service, starting as a waiter
+							and chef in a restaurant, and then working my way up to delivering
+							customer support to one of the UK's biggest company, John Lewis.
+							<br /><br />All along, I had this itch to dive into software
+							development, and here I am on that journey to become a
+							full-fledged developer. In my free time, I love diving into
+							tutorials and keeping up with the latest tech trends. I'm like a
+							sponge for learning, always staying in the loop with what's
+							happening in the tech world. I aspire to craft innovative
+							solutions and create my own impactful piece in the tech landscape.
+							<br /><br />When it comes to work, I thrive in fast-paced,
 							teamwork-heavy setups. I'm your go-to person for delivering
-							results on time. <br><br>But hey, life's not just about work, right?
-							Outside the coding realm, catch me on long walks, biking through
-							new spots, and jamming on the piano. <br><br> It's all about keeping life
-							balanced and exciting!
+							results on time. <br /><br />But hey, life's not just about work,
+							right? Outside the coding realm, catch me on long walks, biking
+							through new spots, and jamming on the piano. <br /><br />
+							It's all about keeping life balanced and exciting!
 						</p>
 					</div>
 				</div>

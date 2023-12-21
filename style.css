@@ -104,14 +104,15 @@ a {
 }
 
 a:hover {
-	color: grey;
-	text-decoration: underline;
+	color: white;
+	text-decoration: underline white;
 	text-underline-offset: 1rem;
-	text-decoration-color: rgb(181, 181, 181);
+	text-decoration-color: rgb(255, 255, 255);
 }
 
 .logo {
 	font-size: 2rem;
+	
 }
 
 .logo:hover {
@@ -152,7 +153,8 @@ li a {
 	position: absolute;
 	top: 100%;
 	right: 0;
-	background: linear-gradient(300deg, white, transparent);
+	/* background: linear-gradient(400de g, transparent, white); */
+
 	width: fit-content;
 	max-height: 0;
 	overflow: hidden;
