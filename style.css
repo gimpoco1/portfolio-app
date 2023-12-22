@@ -96,6 +96,13 @@ nav {
 	list-style: none;
 	font-size: 1.5rem;
 }
+.footer-links {
+	display: flex;
+
+	gap: 2rem;
+	list-style: none;
+	font-size: 1.5rem;
+}
 
 a {
 	color: black;
@@ -108,6 +115,12 @@ a:hover {
 	text-decoration: underline white;
 	text-underline-offset: 1rem;
 	text-decoration-color: rgb(255, 255, 255);
+}
+.footlinks:hover{
+	color: black;
+	text-decoration: underline black;
+	text-underline-offset: 1rem;
+	text-decoration-color: black;
 }
 
 .logo {
