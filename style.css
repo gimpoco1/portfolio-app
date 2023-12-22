@@ -546,3 +546,10 @@ footer {
 footer p {
 	text-align: center;
 }
+
+.contactlinks:hover{
+	color: black;
+	text-decoration: underline black;
+	text-underline-offset: 1rem;
+	text-decoration-color: black;
+}
