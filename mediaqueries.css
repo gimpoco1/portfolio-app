@@ -282,3 +282,42 @@
 		padding-top: 0rem;
 	}
 }
+
+
+  
+  /* Styles for large screens (3 projects in a row) */
+  @media screen and (min-width: 1021px) {
+	.experience-details-container .about-containers {
+	  display: flex;
+	  flex-wrap: wrap;
+	  gap: 2rem;
+	}
+	.details-container {
+	  flex: 1 1 calc(0.333% - 2rem); /* 3 projects in a row */
+	}
+  }
+  
+  /* Styles for medium screens (2 projects in a row) */
+  @media screen and (max-width: 1020px) {
+	.experience-details-container .about-containers {
+	  display: flex;
+	  flex-wrap: wrap;
+	  gap: 1rem;
+	}
+	.details-container {
+	  flex: 1 1 calc(40% - 2rem); /* 2 projects in a row */
+	}
+  }
+  
+  /* Styles for small screens (1 project in a row) */
+  @media screen and (max-width: 600px) {
+	.experience-details-container .about-containers {
+	  display: flex;
+	  flex-wrap: wrap;
+	  gap: 2rem;
+	}
+	.details-container {
+	  flex: 1 1 100%; /* 1 project in a row */
+	}
+  }
+  
