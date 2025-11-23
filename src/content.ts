@@ -26,10 +26,13 @@ export type GradientPreset = {
 };
 
 export const navLinks: NavLink[] = [
-  { label: "About", href: "#about" },
-  { label: "Tech Stack", href: "#experience" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
+  { label: "Download CV", href: "/assets/GiacomoImpocoCV2025.pdf" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/giacomoimpoco/" },
+  { label: "GitHub", href: "https://github.com/gimpoco1" },
+  {
+    label: "Email",
+    href: "https://mail.google.com/mail/?view=cm&fs=1&to=impoco126@gmail.com",
+  },
 ];
 
 export const socialLinks: SocialLink[] = [
@@ -45,7 +48,7 @@ export const socialLinks: SocialLink[] = [
   },
 ];
 
-export const frontEndSkills = [
+export const techStack = [
   "HTML",
   "CSS",
   "React",
@@ -54,9 +57,6 @@ export const frontEndSkills = [
   "Next JS",
   "Chakra UI",
   "TailwindCSS",
-];
-
-export const backEndSkills = [
   "Node JS",
   "NestJS",
   "PostgreSQL",
@@ -64,7 +64,11 @@ export const backEndSkills = [
   "Git CD/CI",
   "MongoDB",
   "Redux",
-  "AWS",
+  "Storybook",
+  "Python",
+  "Django",
+  "Docker",
+  "Vite",
 ];
 
 export const projects: Project[] = [
@@ -95,14 +99,14 @@ export const gradientPresets: GradientPreset[] = [
     colors: ["#ffb600", "#715cff", "#0ebeff", "#ff4e92"],
     rotation: 25,
     speed: 0.25,
-    warpStrength: 1.2,
-    frequency: 1.0,
+    warpStrength: 4.2,
+    frequency: 0.2,
   },
   {
     name: "Neon Sands",
     colors: ["#ff6347", "#ffc857", "#57ebff", "#785cff"],
-    rotation: 100,
-    speed: 0.18,
+    rotation: 60,
+    speed: 0.13,
     warpStrength: 1.1,
     frequency: 1.2,
   },

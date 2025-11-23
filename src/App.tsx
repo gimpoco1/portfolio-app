@@ -1,14 +1,32 @@
-import { useState, type ReactNode } from "react";
+import { type ReactNode } from "react";
 import {
-  backEndSkills,
   experienceStartYear,
-  frontEndSkills,
+  techStack,
   gradientPresets,
   navLinks,
   projects,
-  socialLinks,
 } from "./content";
 import { ColorBends } from "./components/ColorBends";
+
+const iconSlugs: Record<string, string> = {
+  HTML: "html5",
+  CSS: "csswizardry",
+  "Next JS": "nextdotjs",
+  "Chakra UI": "chakraui",
+  "Node JS": "nodedotjs",
+  "Express/KOA": "express",
+  "Git CD/CI": "git",
+};
+
+const iconForSkill = (skill: string) => {
+  const slug =
+    iconSlugs[skill] ??
+    skill
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-|-$/g, "");
+  return `https://cdn.simpleicons.org/${slug}`;
+};
 
 const Brand = () => (
   <div className="brand">
@@ -28,7 +46,7 @@ const NavBar = () => (
     <Brand />
     <div className="nav-links">
       {navLinks.map((link) => (
-        <a key={link.label} className="ghost-pill" href={link.href}>
+        <a key={link.label} href={link.href} target="_blank" rel="noreferrer">
           {link.label}
         </a>
       ))}
@@ -50,19 +68,6 @@ const Hero = ({ experienceYears }: { experienceYears: number }) => (
       thoughtful UX and clean engineering.
     </p>
     <div className="chip-row"></div>
-    <div className="cta-row">
-      <a
-        className="btn primary"
-        href="/assets/GiacomoImpocoCV2025.pdf"
-        target="_blank"
-        rel="noreferrer"
-      >
-        Download CV
-      </a>
-      <a className="btn ghost" href="#projects">
-        View Projects
-      </a>
-    </div>
   </section>
 );
 
@@ -84,50 +89,57 @@ const Card = ({
 );
 
 const About = () => (
-  <Card id="about" title="About">
-    <p>
-      Originally from Italy, I moved out of the country when I was 17 and I've
-      been soaking up London life for almost 7 years. I kicked off my career in
-      customer service, starting as a waiter and chef in a restaurant, and then
-      working my way up to delivering customer support to one of the UK's
-      biggest companies, John Lewis.
-    </p>
-    <p>
-      All along, I had this itch to dive into software development, and here I
-      am on that journey to become a full-fledged developer. In my free time, I
-      love diving into tutorials and keeping up with the latest tech trends. I'm
-      like a sponge for learning, always staying in the loop with what's
-      happening in the tech world. I aspire to craft innovative solutions and
-      create my own impactful piece in the tech landscape. When it comes to
-      work, I thrive in fast-paced, teamwork-heavy setups. I'm your go-to person
-      for delivering results on time. Outside the coding realm, catch me on long
-      walks, biking through new spots, and jamming on the piano.
-    </p>
-  </Card>
-);
-
-const Skills = () => (
-  <Card id="experience" title="Tech Stack">
-    <div className="skill-columns">
-      <div>
-        <h4>Frontend</h4>
-        <ul>
-          {frontEndSkills.map((skill) => (
-            <li key={skill}>{skill}</li>
-          ))}
-        </ul>
-      </div>
-      <div>
-        <h4>Backend</h4>
-        <ul>
-          {backEndSkills.map((skill) => (
-            <li key={skill}>{skill}</li>
-          ))}
-        </ul>
+  <section id="about" className="feature-card about-panel">
+    <div className="feature-header">
+      <span className="pill-label">Story so far</span>
+    </div>
+    <div className="about-body">
+      <div className="glow-accent" aria-hidden="true" />
+      <div className="about-copy">
+        <p>
+          Originally from Italy, I moved out of the country when I was 17 and
+          I've been soaking up London life for almost 7 years. I kicked off my
+          career in customer service, starting as a waiter and chef in a
+          restaurant, and then working my way up to delivering customer support
+          to one of the UK's biggest companies, John Lewis.
+        </p>
+        <p>
+          All along, I had this itch to dive into software development, and here
+          I am on that journey to become a full-fledged developer. In my free
+          time, I love diving into tutorials and keeping up with the latest tech
+          trends. I'm like a sponge for learning, always staying in the loop
+          with what's happening in the tech world. I aspire to craft innovative
+          solutions and create my own impactful piece in the tech landscape.
+          When it comes to work, I thrive in fast-paced, teamwork-heavy setups.
+          I'm your go-to person for delivering results on time. Outside the
+          coding realm, catch me on long walks, biking through new spots, and
+          jamming on the piano.
+        </p>
       </div>
     </div>
-  </Card>
+  </section>
 );
+
+const Skills = () => {
+  const skills = [...techStack];
+  return (
+    <section id="experience" className="feature-card stack-panel">
+      <div className="feature-header">
+        <span className="pill-label">Tools in my stack</span>
+      </div>
+      <div className="tech-grid">
+        {skills.map((skill) => (
+          <div key={skill} className="tech-card">
+            <div className="tech-icon">
+              <img src={iconForSkill(skill)} alt={`${skill} icon`} />
+            </div>
+            <div className="tech-label">{skill}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
 
 const Projects = () => (
   <Card id="projects" title="Projects">
@@ -156,36 +168,9 @@ const Projects = () => (
   </Card>
 );
 
-const Contact = () => (
-  <Card id="contact" title="Contact">
-    <div className="contact-row">
-      <a className="contact-link" href="mailto:impoco126@gmail.com">
-        <span className="contact-label">Email</span>
-        <span className="contact-value">impoco126@gmail.com</span>
-      </a>
-      <div className="social-row">
-        {socialLinks.map((social) => (
-          <a
-            key={social.label}
-            href={social.href}
-            target="_blank"
-            rel="noreferrer"
-            className="social-pill"
-          >
-            <img src={social.icon} alt={`${social.label} icon`} />
-            {social.label}
-          </a>
-        ))}
-      </div>
-    </div>
-  </Card>
-);
-
 const App = () => {
-  const [activePresetIndex, setActivePresetIndex] = useState(0);
   const experienceYears = new Date().getFullYear() - experienceStartYear;
   const activePreset = gradientPresets[1];
-
 
   return (
     <div className="page">
@@ -197,7 +182,7 @@ const App = () => {
         speed={activePreset.speed}
         warpStrength={activePreset.warpStrength}
         frequency={activePreset.frequency}
-        mouseInfluence={0.6}
+        mouseInfluence={1.6}
         parallax={0.4}
         noise={0.08}
         autoRotate={0.6}
@@ -208,12 +193,12 @@ const App = () => {
         </header>
         <main className="content">
           <Hero experienceYears={experienceYears} />
-          <div className="grid">
+
+          <section className="stacked-sections">
             <About />
             <Skills />
-          </div>
+          </section>
           <Projects />
-          <Contact />
         </main>
       </div>
     </div>
