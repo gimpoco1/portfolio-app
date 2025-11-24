@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { projects } from "../content";
-import { FeatureCard, FeatureHeader } from "./ui";
+import { FeatureCard, FeatureHeader, PillLabel } from "./CommonStyles";
 
 const ProjectsGrid = styled.div`
   display: grid;
@@ -57,7 +57,7 @@ const ProjectLinks = styled.div`
 export const Projects = () => (
   <FeatureCard id="projects">
     <FeatureHeader>
-      <h3>Projects</h3>
+      <PillLabel>After Hours</PillLabel>
     </FeatureHeader>
     <ProjectsGrid>
       {projects.map((project) => (

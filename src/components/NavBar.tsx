@@ -1,42 +1,67 @@
 import styled from "@emotion/styled";
 import { navLinks } from "../content";
 
-const NavPill = styled.div`
+type Props = { scrolled?: boolean };
+
+export const NavBar = ({ scrolled = false }: Props) => (
+  <NavWrap scrolled={scrolled}>
+    <Brand scrolled={scrolled} />
+    <NavLinks scrolled={scrolled}>
+      {navLinks.map((link) => (
+        <NavAnchor
+          scrolled={scrolled}
+          key={link.label}
+          href={link.href}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {link.label}
+        </NavAnchor>
+      ))}
+    </NavLinks>
+  </NavWrap>
+);
+
+const NavWrap = styled.div<Props>`
   width: 100%;
-  max-width: 900px;
+  max-width: ${({ scrolled }) => (scrolled ? "fit-content" : "100%")};
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 18px;
-  background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.14),
-      rgba(255, 255, 255, 0.06)
-    );
-  border-radius: 999px;
-  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.38),
-    inset 0 1px 0 rgba(255, 255, 255, 0.55),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.16);
-  backdrop-filter: blur(5px) saturate(120%);
+  padding: ${({ scrolled }) => (scrolled ? "12px 18px" : "8px 0")};
+  border-radius: ${({ scrolled }) => (scrolled ? "999px" : "0")};
+  background: transparent;
+  border: ${({ scrolled }) =>
+    scrolled ? "1px solid rgba(255, 255, 255, 0.24)" : "none"};
+  box-shadow: none;
+  backdrop-filter: ${({ scrolled }) =>
+    scrolled ? "blur(2px) saturate(160%)" : "none"};
   overflow: hidden;
   isolation: isolate;
+  transition: all 0.35s ease;
 `;
 
-const BrandWrap = styled.div`
+const BrandWrap = styled.div<Props>`
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: ${({ scrolled }) => (scrolled ? "10px" : "6px")};
   font-weight: 700;
   letter-spacing: -0.01em;
+  color: ${({ scrolled }) => (scrolled ? "#ffffff" : "#f5f3ff")};
+  transition: color 0.35s ease, gap 0.35s ease;
 `;
 
-const BrandPhoto = styled.img`
-  width: 42px;
-  height: 42px;
+const BrandPhoto = styled.img<Props>`
+  width: ${({ scrolled }) => (scrolled ? "40px" : "32px")};
+  height: ${({ scrolled }) => (scrolled ? "40px" : "32px")};
   border-radius: 50%;
-  object-fit: contain;
-  border: 2px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  object-fit: cover;
+  border: 2px solid
+    rgba(255, 255, 255, ${({ scrolled }) => (scrolled ? "0.12" : "0.18")});
+  box-shadow: ${({ scrolled }) =>
+    scrolled ? "0 10px 30px rgba(0, 0, 0, 0.35)" : "none"};
+  transition: width 0.35s ease, height 0.35s ease, border-color 0.35s ease,
+    box-shadow 0.35s ease;
 `;
 
 const BrandText = styled.div`
@@ -46,57 +71,50 @@ const BrandText = styled.div`
   line-height: 1.1;
 `;
 
-const BrandName = styled.span`
-  font-size: 18px;
+const BrandName = styled.span<Props>`
+  font-size: ${({ scrolled }) => (scrolled ? "16px" : "16px")};
+  transition: font-size 0.35s ease, color 0.35s ease;
+  margin-right: 24px;
 `;
 
-const NavLinks = styled.div`
+const NavLinks = styled.div<Props>`
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: ${({ scrolled }) => (scrolled ? "0" : "36px")};
+  transition: gap 0.35s ease;
 `;
 
-const NavAnchor = styled.a`
-  padding: 10px 16px;
-  border-radius: 999px;
-  color: var(--muted);
-  font-weight: 600;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25),
-    0 12px 26px rgba(0, 0, 0, 0.18);
-  transition: color 0.2s, background 0.2s, transform 0.2s,
-    border-color 0.2s, box-shadow 0.2s;
+const NavAnchor = styled.a<Props>`
+  padding: ${({ scrolled }) => (scrolled ? "10px 16px" : "0")};
+  border-radius: ${({ scrolled }) => (scrolled ? "999px" : "0")};
+  color: white;
+  background: transparent;
+  transition: color 0.35s ease, background 0.35s ease, transform 0.35s ease,
+    border-color 0.35s ease, box-shadow 0.35s ease;
 
   &:hover {
-    color: var(--text);
-    background: rgba(255, 255, 255, 0.14);
-    border-color: rgba(255, 255, 255, 0.36);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4),
-      0 14px 34px rgba(0, 0, 0, 0.24);
-    transform: translateY(-1px);
-    filter: saturate(1.1);
+    color: ${({ scrolled }) => (scrolled ? "var(--text)" : "#fff")};
+    background: ${({ scrolled }) =>
+      scrolled ? "rgba(255, 255, 255, 0.14)" : "transparent"};
+    border-color: ${({ scrolled }) =>
+      scrolled ? "rgba(255, 255, 255, 0.36)" : "none"};
+    box-shadow: ${({ scrolled }) =>
+      scrolled
+        ? "inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 14px 34px rgba(0, 0, 0, 0.24)"
+        : "none"};
+    transform: ${({ scrolled }) => (scrolled ? "translateY(-1px)" : "none")};
   }
 `;
 
-const Brand = () => (
-  <BrandWrap>
-    <BrandPhoto src="/assets/mypic.jpeg" alt="Giacomo portrait" />
+const Brand = ({ scrolled }: Props) => (
+  <BrandWrap scrolled={scrolled}>
+    <BrandPhoto
+      scrolled={scrolled}
+      src="/assets/mypic.jpeg"
+      alt="Giacomo portrait"
+    />
     <BrandText>
-      <BrandName>Giacomo Impoco</BrandName>
+      <BrandName scrolled={scrolled}>Giacomo Impoco</BrandName>
     </BrandText>
   </BrandWrap>
-);
-
-export const NavBar = () => (
-  <NavPill>
-    <Brand />
-    <NavLinks>
-      {navLinks.map((link) => (
-        <NavAnchor key={link.label} href={link.href} target="_blank" rel="noreferrer">
-          {link.label}
-        </NavAnchor>
-      ))}
-    </NavLinks>
-  </NavPill>
 );

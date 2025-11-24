@@ -7,6 +7,7 @@ import { About } from "./components/About";
 import { Skills } from "./components/Skills";
 import { Projects } from "./components/Projects";
 import LiquidEther from "./components/LiquidEther";
+import { useState, useEffect } from "react";
 
 const globalStyles = css`
   @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
@@ -16,7 +17,8 @@ const globalStyles = css`
     --bg: #06030d;
     --card: rgba(14, 10, 26, 0.8);
     --stroke: rgba(255, 255, 255, 0.08);
-    --text: #f5f3ff;
+    --text: #fdfdfd;
+    --text-dark: #1d1d1d;
     --muted: #c8c3d8;
     --accent: #e4d1ff;
     --pill: rgba(255, 255, 255, 0.06);
@@ -46,7 +48,6 @@ const globalStyles = css`
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 120px;
   }
 
   .liquid-ether-container {
@@ -64,7 +65,7 @@ const Page = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: 32px;
+  padding: 0px 32px 32px 0px;
   position: relative;
   overflow: visible;
 `;
@@ -99,6 +100,16 @@ const StackedSections = styled.section`
 
 const App = () => {
   const experienceYears = new Date().getFullYear() - experienceStartYear;
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 200);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <Page>
@@ -135,7 +146,7 @@ const App = () => {
       </div>
       <Frame>
         <TopBar>
-          <NavBar />
+          <NavBar scrolled={scrolled} />
         </TopBar>
         <Content>
           <Hero experienceYears={experienceYears} />
