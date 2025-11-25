@@ -73,13 +73,13 @@ export const techStack = [
 
 export const projects: Project[] = [
   {
-    title: "Building Construction Website",
+    title: "Building Construction Company",
     image: "/assets/mpkbuildings.png",
     github: "https://github.com/gimpoco1/mpk-buildings",
     demo: "https://mpkbuildings.com/",
   },
   {
-    title: "Market Place",
+    title: "E-commerce Marketplace",
     image: "/assets/marketplace.png",
     github: "https://github.com/gimpoco1/market-place",
     demo: "https://treasure-ireland.vercel.app/",
