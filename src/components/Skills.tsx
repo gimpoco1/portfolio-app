@@ -64,7 +64,7 @@ const StackSubtitle = styled.p`
 
 const TechGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(120px, 2fr));
   gap: 12px;
   margin-top: 10px;
   position: relative;
@@ -120,8 +120,8 @@ const TechCard = styled.div`
 `;
 
 const TechIcon = styled.div`
-  width: 42px;
-  height: 42px;
+  width: 32px;
+  height: 32px;
   display: grid;
   place-items: center;
   z-index: 1;

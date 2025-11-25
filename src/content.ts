@@ -92,38 +92,3 @@ export const projects: Project[] = [
 ];
 
 export const experienceStartYear = 2022;
-
-export const gradientPresets: GradientPreset[] = [
-  {
-    name: "Aurora",
-    colors: ["#ffb600", "#715cff", "#0ebeff", "#ff4e92"],
-    rotation: 25,
-    speed: 0.25,
-    warpStrength: 4.2,
-    frequency: 0.2,
-  },
-  {
-    name: "Neon Sands",
-    colors: ["#ff6347", "#ffc857", "#57ebff", "#785cff"],
-    rotation: 60,
-    speed: 0.13,
-    warpStrength: 1.1,
-    frequency: 1.2,
-  },
-  {
-    name: "Laser Bloom",
-    colors: ["#ff005c", "#fff45e", "#00b2ff", "#6b00ff"],
-    rotation: 60,
-    speed: 0.28,
-    warpStrength: 1.3,
-    frequency: 1.1,
-  },
-  {
-    name: "Prism",
-    colors: ["#ffa900", "#ffffff", "#00e0ff", "#965cff"],
-    rotation: 25,
-    speed: 0.2,
-    warpStrength: 1.0,
-    frequency: 0.9,
-  },
-];

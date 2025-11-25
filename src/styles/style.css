@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
-
 :root {
   color-scheme: dark;
   --bg: #06030d;
@@ -28,7 +26,8 @@ html {
 
 body {
   margin: 0;
-  font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
+  font-family: -apple-system, "SF Pro Display", "SF Pro Text", "San Francisco",
+    system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
   background: var(--bg);
   color: var(--text);
 }

@@ -1,6 +1,6 @@
 import { Global, css } from "@emotion/react";
 import styled from "@emotion/styled";
-import { experienceStartYear, gradientPresets } from "./content";
+import { experienceStartYear } from "./content";
 import { NavBar } from "./components/NavBar";
 import { Hero } from "./components/Hero";
 import { About } from "./components/About";
@@ -10,8 +10,6 @@ import LiquidEther from "./components/LiquidEther";
 import { useState, useEffect } from "react";
 
 const globalStyles = css`
-  @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
-
   :root {
     color-scheme: dark;
     --bg: #06030d;
@@ -36,7 +34,8 @@ const globalStyles = css`
 
   body {
     margin: 0;
-    font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
+    font-family: -apple-system, "SF Pro Display", "SF Pro Text", "San Francisco",
+      system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
     background: var(--bg);
     color: var(--text);
   }
