@@ -6,6 +6,7 @@ import { Hero } from "./components/Hero";
 import { About } from "./components/About";
 import { Skills } from "./components/Skills";
 import { Projects } from "./components/Projects";
+import { Footer } from "./components/Footer";
 import LiquidEther from "./components/LiquidEther";
 import { useState, useEffect } from "react";
 
@@ -62,9 +63,10 @@ const Page = styled.div`
   height: 100vh;
   overflow-y: auto;
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 0px 32px 32px 0px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 16px 0 32px;
   position: relative;
   overflow: visible;
 `;
@@ -73,6 +75,7 @@ const Frame = styled.div`
   position: relative;
   width: min(1200px, 100%);
   padding: 28px 28px 36px;
+  margin: 0 auto;
   overflow: visible;
 `;
 
@@ -148,6 +151,7 @@ const App = () => {
           <Projects />
         </Content>
       </Frame>
+      <Footer />
     </Page>
   );
 };

@@ -35,7 +35,7 @@ const NavWrap = styled.div<Props>`
     scrolled ? "1px solid rgba(255, 255, 255, 0.24)" : "none"};
   box-shadow: none;
   backdrop-filter: ${({ scrolled }) =>
-    scrolled ? "blur(2px) saturate(160%)" : "none"};
+    scrolled ? "blur(4px) saturate(160%)" : "none"};
   overflow: hidden;
   isolation: isolate;
   transition: all 0.35s ease;
