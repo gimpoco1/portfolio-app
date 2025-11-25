@@ -19,12 +19,10 @@ const GlowAccent = styled.div`
 `;
 
 const AboutCopy = styled.div`
-  p {
-    margin: 0 0 12px;
-    color: var(--muted);
-    line-height: 1.65;
-    font-size: 16px;
-  }
+  margin: 0 0 12px;
+  color: var(--muted);
+  line-height: 1.65;
+  font-size: 16px;
 `;
 
 export const About = () => (
@@ -35,25 +33,23 @@ export const About = () => (
     <AboutBody>
       <GlowAccent aria-hidden="true" />
       <AboutCopy>
-        <p>
-          Originally from Italy, I moved out of the country when I was 17 and
-          I've been soaking up London life for almost 7 years. I kicked off my
-          career in customer service, starting as a waiter and chef in a
-          restaurant, and then working my way up to delivering customer support
-          to one of the UK's biggest companies, John Lewis.
-        </p>
-        <p>
-          All along, I had this itch to dive into software development, and here
-          I am on that journey to become a full-fledged developer. In my free
-          time, I love diving into tutorials and keeping up with the latest tech
-          trends. I'm like a sponge for learning, always staying in the loop
-          with what's happening in the tech world. I aspire to craft innovative
-          solutions and create my own impactful piece in the tech landscape.
-          When it comes to work, I thrive in fast-paced, teamwork-heavy setups.
-          I'm your go-to person for delivering results on time. Outside the
-          coding realm, catch me on long walks, biking through new spots, and
-          jamming on the piano.
-        </p>
+        Originally from Italy, I moved out when I was 17 and spent almost 7
+        years soaking up London life. These days I'm based in sunny Barcelona,
+        swapping rain for tapas and sea breezes. I kicked off my career in
+        customer service—waiting tables, cooking, then supporting customers with
+        tech and appliances for John Lewis—so I'm wired to listen and solve what
+        people need.
+        <br />
+        <br />
+        I always had the itch to build software, and now I focus on frontend—
+        making interfaces that feel fast, fun, and human. I've also got backend
+        chops, so I think through the whole stack before I code. I'm a learning
+        sponge who keeps up with new patterns and tools, then puts them to work.
+        I thrive in fast-paced, collaborative teams and I'm the person who
+        quietly keeps delivery on track.
+        <br />
+        <br /> When I'm not coding, I'm probably on a long walk, biking
+        somewhere new, or playing the piano.
       </AboutCopy>
     </AboutBody>
   </FeatureCard>

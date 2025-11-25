@@ -118,37 +118,44 @@ const ProjectThumb = styled.div`
 const ProjectTitle = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  text-align: center;
+  width: 100%;
+  flex-direction: column;
   gap: 1px;
 
   h4 {
-    margin: 6px 0 6px;
+    margin: 4px 0 16px;
     font-size: 16px;
     color: var(--text);
   }
 `;
 
-
-
 const ProjectLinks = styled.div`
   display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+  gap: 14px;
+  flex-wrap: nowrap;
   margin-top: auto;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 `;
 
 const LinkButton = styled.a`
   padding: 10px 14px;
   border-radius: 16px;
-  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.06));
+  background: radial-gradient(
+    circle at 20% 20%,
+    rgba(255, 255, 255, 0.18),
+    rgba(255, 255, 255, 0.06)
+  );
   color: var(--text);
   font-weight: 700;
   font-size: 14px;
   border: 1px solid rgba(255, 255, 255, 0.24);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35),
     0 10px 30px rgba(0, 0, 0, 0.35);
-  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+  transition: transform 180ms ease, background 180ms ease,
+    border-color 180ms ease;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -156,7 +163,11 @@ const LinkButton = styled.a`
 
   &:hover {
     transform: translateY(-1px);
-    background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.12));
+    background: radial-gradient(
+      circle at 20% 20%,
+      rgba(255, 255, 255, 0.26),
+      rgba(255, 255, 255, 0.12)
+    );
     border-color: rgba(255, 255, 255, 0.38);
   }
 `;

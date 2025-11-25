@@ -91,12 +91,6 @@ const Content = styled.main`
   gap: 28px;
 `;
 
-const StackedSections = styled.section`
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-`;
-
 const App = () => {
   const experienceYears = new Date().getFullYear() - experienceStartYear;
   const [scrolled, setScrolled] = useState(false);
@@ -149,10 +143,8 @@ const App = () => {
         </TopBar>
         <Content>
           <Hero experienceYears={experienceYears} />
-          <StackedSections>
-            <About />
-            <Skills />
-          </StackedSections>
+          <About />
+          <Skills />
           <Projects />
         </Content>
       </Frame>
