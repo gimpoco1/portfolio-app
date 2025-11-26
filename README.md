@@ -1,4 +1,4 @@
-# Giacomo Impoco's Portfolio
+# My Portfolio
 
 Hey there! This cozy corner of the internet is my personal portfolio, packed with projects, experiments, and all the things that keep me curious. Wander around, enjoy the vibes, and get to know what I have been building.
 

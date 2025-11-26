@@ -70,7 +70,7 @@ const CredentialLink = styled.a`
 export const Education = () => (
   <FeatureCard id="education">
     <FeatureHeader>
-      <PillLabel>Learnings</PillLabel>
+      <PillLabel>Learning Lab</PillLabel>
     </FeatureHeader>
     <EduList>
       {education.map((item) => (

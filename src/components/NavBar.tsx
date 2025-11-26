@@ -111,6 +111,7 @@ const NavWrap = styled.div<NavWrapProps>`
     padding: 12px;
     flex-direction: column;
     align-items: stretch;
+    min-width: 270px;
     gap: 0;
   }
 `;
@@ -119,7 +120,7 @@ const TopRow = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   gap: 18px;
 `;
 
@@ -148,9 +149,8 @@ const Avatar = styled.img<Props>`
 `;
 
 const Name = styled.span<Props>`
-  font-size: ${({ scrolled }) => (scrolled ? "16px" : "16px")};
+  font-size: 16px;
   transition: font-size 0.35s ease, color 0.35s ease;
-  margin-right: 24px;
 `;
 
 const NavLinks = styled.div<Props>`
@@ -185,11 +185,13 @@ const NavAnchor = styled.a<Props>`
         : "none"};
     transform: ${({ scrolled }) => (scrolled ? "translateY(-1px)" : "none")};
   }
-
   @media (max-width: 880px) {
     padding: 12px 0;
     width: 100%;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    &:last-of-type {
+      border-bottom: none;
+    }
   }
 `;
 
@@ -201,7 +203,7 @@ const MenuButton = styled.button<Props>`
   border: ${({ scrolled }) =>
     scrolled ? "1px solid rgba(255, 255, 255, 0.24)" : "none"};
   background: transparent;
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(2px);
   align-items: center;
   justify-content: center;
   gap: 5px;
@@ -224,7 +226,6 @@ const MenuButton = styled.button<Props>`
 
   @media (max-width: 880px) {
     display: inline-flex;
-    margin-left: auto;
   }
 `;
 
@@ -238,8 +239,7 @@ const MobileMenu = styled.div<NavLinksProps>`
     display: flex;
     flex-basis: 100%;
     padding-top: ${({ open }) => (open ? "6px" : "0")};
-    border-top: ${({ open }) =>
-      open ? "1px solid rgba(255, 255, 255, 0.12)" : "0"};
+
     max-height: ${({ open }) => (open ? "320px" : "0")};
     opacity: ${({ open }) => (open ? 1 : 0)};
     pointer-events: ${({ open }) => (open ? "auto" : "none")};
