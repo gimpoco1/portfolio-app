@@ -11,6 +11,9 @@ export const Hero = ({ experienceYears }: { experienceYears: number }) => (
 const HeroSection = styled.section`
   text-align: center;
   padding: 50vh 18px 28vh;
+  @media (max-width: 880px) {
+    padding: 40vh 0px 18vh;
+  }
 `;
 
 const Eyebrow = styled.div`
@@ -24,6 +27,12 @@ const Eyebrow = styled.div`
   font-weight: 700;
   font-size: 16px;
   margin-top: 36px;
+
+  @media (max-width: 880px) {
+    margin-top: 28px;
+    padding: 4px 10px;
+    font-size: 12px;
+  }
 `;
 
 const Image = styled.img`
