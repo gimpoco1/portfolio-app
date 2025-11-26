@@ -6,6 +6,7 @@ import { Hero } from "./components/Hero";
 import { About } from "./components/About";
 import { Skills } from "./components/Skills";
 import { Projects } from "./components/Projects";
+import { Education } from "./components/Education";
 import { Footer } from "./components/Footer";
 import LiquidEther from "./components/LiquidEther";
 import { useState, useEffect } from "react";
@@ -149,6 +150,7 @@ const App = () => {
           <About />
           <Skills />
           <Projects />
+          <Education />
         </Content>
       </Frame>
       <Footer />

@@ -5,7 +5,7 @@ import { FeatureCard, FeatureHeader, PillLabel } from "./CommonStyles";
 export const Skills = () => (
   <FeatureCard id="experience">
     <FeatureHeader>
-      <PillLabel>Stack I use</PillLabel>
+      <PillLabel>Experience with</PillLabel>
     </FeatureHeader>
     <TechGrid>
       {techStack.map((skill) => (

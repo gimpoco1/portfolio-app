@@ -16,6 +16,14 @@ export type Project = {
   demo?: string;
 };
 
+export type EducationEntry = {
+  title: string;
+  issuer: string;
+  year: string;
+  summary?: string;
+  link?: string;
+};
+
 export type GradientPreset = {
   name: string;
   colors: string[];
@@ -69,6 +77,7 @@ export const techStack = [
   "Django",
   "Docker",
   "Vite",
+  "Figma"
 ];
 
 export const projects: Project[] = [
@@ -92,3 +101,34 @@ export const projects: Project[] = [
 ];
 
 export const experienceStartYear = 2022;
+
+export const education: EducationEntry[] = [
+  {
+    title: "Full-Stack Web Development Bootcamp",
+    issuer: "Codeworks",
+    year: "2024",
+    summary:
+      "Completed an intensive full-stack web development bootcamp focusing on modern web technologies and best practices.",
+  },
+  {
+    title: "Databases for Back-End Development",
+    issuer: "Coursera",
+    year: "2023",
+    summary:
+      "Learned about database design, SQL, and back-end data management.",
+  },
+  {
+    title: "AWS Cloud Practitioner Essentials",
+    issuer: "Coursera",
+    year: "2023",
+    summary:
+      "Gained foundational knowledge of AWS cloud concepts, services, and best practices.",
+  },
+  {
+    title: "Google IT Support Specialization",
+    issuer: "Coursera",
+    year: "2022",
+    summary:
+      "Gained foundational IT support skills including troubleshooting, system administration, and security.",
+  },
+];

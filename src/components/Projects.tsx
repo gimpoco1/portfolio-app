@@ -3,6 +3,19 @@ import React, { useCallback } from "react";
 import { projects, type Project } from "../content";
 import { FeatureCard, FeatureHeader, PillLabel } from "./CommonStyles";
 
+export const Projects = () => (
+  <FeatureCard id="projects">
+    <FeatureHeader>
+      <PillLabel>After Hours Projects</PillLabel>
+    </FeatureHeader>
+    <ProjectsGrid>
+      {projects.map((project) => (
+        <ProjectCard key={project.title} project={project} />
+      ))}
+    </ProjectsGrid>
+  </FeatureCard>
+);
+
 const ProjectsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -210,16 +223,3 @@ const ProjectCard = ({ project }: { project: Project }) => {
     </SpotlightCard>
   );
 };
-
-export const Projects = () => (
-  <FeatureCard id="projects">
-    <FeatureHeader>
-      <PillLabel>After Hours</PillLabel>
-    </FeatureHeader>
-    <ProjectsGrid>
-      {projects.map((project) => (
-        <ProjectCard key={project.title} project={project} />
-      ))}
-    </ProjectsGrid>
-  </FeatureCard>
-);

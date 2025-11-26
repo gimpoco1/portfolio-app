@@ -1,47 +1,129 @@
 import styled from "@emotion/styled";
+import { useEffect, useRef, useState } from "react";
 import { navLinks } from "../content";
 
 type Props = { scrolled?: boolean };
+type NavLinksProps = Props & { open?: boolean };
+type NavWrapProps = Props & { expanded?: boolean };
 
-export const NavBar = ({ scrolled = false }: Props) => (
-  <NavWrap scrolled={scrolled}>
-    <Brand scrolled={scrolled} />
-    <NavLinks scrolled={scrolled}>
-      {navLinks.map((link) => (
-        <NavAnchor
-          scrolled={scrolled}
-          key={link.label}
-          href={link.href}
-          target="_blank"
-          rel="noreferrer"
+export const NavBar = ({ scrolled = false }: Props) => {
+  const [open, setOpen] = useState(false);
+  const [expanded, setExpanded] = useState(false);
+  const collapseTimer = useRef<ReturnType<typeof setTimeout>>();
+
+  const openMenu = () => {
+    if (collapseTimer.current) clearTimeout(collapseTimer.current);
+    setOpen(true);
+    setExpanded(true);
+  };
+
+  const collapseMenu = () => {
+    if (collapseTimer.current) clearTimeout(collapseTimer.current);
+    setOpen(false);
+    collapseTimer.current = setTimeout(() => {
+      setExpanded(false);
+      collapseTimer.current = undefined;
+    }, 350);
+  };
+
+  const toggleMenu = () => (open ? collapseMenu() : openMenu());
+  const closeMenu = () => {
+    if (open) collapseMenu();
+  };
+
+  useEffect(() => {
+    return () => {
+      if (collapseTimer.current) clearTimeout(collapseTimer.current);
+    };
+  }, []);
+
+  return (
+    <NavWrap scrolled={scrolled} expanded={expanded}>
+      <TopRow>
+        <Brand scrolled={scrolled} />
+        <NavLinks scrolled={scrolled}>
+          {navLinks.map((link) => (
+            <NavAnchor
+              scrolled={scrolled}
+              key={link.label}
+              href={link.href}
+              target="_blank"
+              rel="noreferrer"
+              onClick={closeMenu}
+            >
+              {link.label}
+            </NavAnchor>
+          ))}
+        </NavLinks>
+        <MenuButton
+          aria-label="Toggle navigation"
+          aria-expanded={open}
+          onClick={toggleMenu}
         >
-          {link.label}
-        </NavAnchor>
-      ))}
-    </NavLinks>
-  </NavWrap>
-);
+          <span />
+          <span />
+          <span />
+        </MenuButton>
+      </TopRow>
+      <MobileMenu open={open}>
+        {navLinks.map((link) => (
+          <NavAnchor
+            key={`mobile-${link.label}`}
+            href={link.href}
+            target="_blank"
+            rel="noreferrer"
+            onClick={closeMenu}
+          >
+            {link.label}
+          </NavAnchor>
+        ))}
+      </MobileMenu>
+    </NavWrap>
+  );
+};
 
-const NavWrap = styled.div<Props>`
+const NavWrap = styled.div<NavWrapProps>`
   width: 100%;
-  max-width: ${({ scrolled }) => (scrolled ? "fit-content" : "100%")};
+  max-width: ${({ scrolled }) => (scrolled ? "75%" : "100%")};
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: ${({ scrolled }) => (scrolled ? "12px 18px" : "8px 0")};
-  border-radius: ${({ scrolled }) => (scrolled ? "999px" : "0")};
+  padding: ${({ scrolled }) => (scrolled ? "12px 18px" : "12px 0")};
+  border-radius: ${({ scrolled, expanded }) =>
+    expanded ? "34px" : scrolled ? "999px" : "18px"};
   background: transparent;
   border: ${({ scrolled }) =>
     scrolled ? "1px solid rgba(255, 255, 255, 0.24)" : "none"};
-  box-shadow: none;
+
+  box-shadow: ${({ scrolled }) =>
+    scrolled ? "0 10px 30px rgba(0,0,0,0.35)" : "none"};
   backdrop-filter: ${({ scrolled }) =>
-    scrolled ? "blur(4px) saturate(160%)" : "none"};
+    scrolled ? "blur(10px) saturate(160%)" : "none"};
   overflow: hidden;
   isolation: isolate;
-  transition: all 0.35s ease;
+  transition: background 0.35s ease, box-shadow 0.35s ease, padding 0.35s ease,
+    max-width 0.35s ease, top 0.35s ease, border-color 0.35s ease;
+  position: sticky;
+  top: ${({ scrolled }) => (scrolled ? "16px" : "22px")};
+  z-index: 10;
+
+  @media (max-width: 880px) {
+    padding: 12px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
 `;
 
-const BrandWrap = styled.div<Props>`
+const TopRow = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 18px;
+`;
+
+const NameWrap = styled.div<Props>`
   display: inline-flex;
   align-items: center;
   gap: ${({ scrolled }) => (scrolled ? "10px" : "6px")};
@@ -49,9 +131,10 @@ const BrandWrap = styled.div<Props>`
   letter-spacing: -0.01em;
   color: ${({ scrolled }) => (scrolled ? "#ffffff" : "#f5f3ff")};
   transition: color 0.35s ease, gap 0.35s ease;
+  flex-shrink: 0;
 `;
 
-const BrandPhoto = styled.img<Props>`
+const Avatar = styled.img<Props>`
   width: ${({ scrolled }) => (scrolled ? "40px" : "32px")};
   height: ${({ scrolled }) => (scrolled ? "40px" : "32px")};
   border-radius: 50%;
@@ -64,14 +147,7 @@ const BrandPhoto = styled.img<Props>`
     box-shadow 0.35s ease;
 `;
 
-const BrandText = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  line-height: 1.1;
-`;
-
-const BrandName = styled.span<Props>`
+const Name = styled.span<Props>`
   font-size: ${({ scrolled }) => (scrolled ? "16px" : "16px")};
   transition: font-size 0.35s ease, color 0.35s ease;
   margin-right: 24px;
@@ -80,8 +156,13 @@ const BrandName = styled.span<Props>`
 const NavLinks = styled.div<Props>`
   display: flex;
   align-items: center;
-  gap: ${({ scrolled }) => (scrolled ? "0" : "36px")};
+  margin-left: auto;
+  gap: ${({ scrolled }) => (scrolled ? "0" : "50px")};
   transition: gap 0.35s ease;
+
+  @media (max-width: 880px) {
+    display: none;
+  }
 `;
 
 const NavAnchor = styled.a<Props>`
@@ -91,7 +172,7 @@ const NavAnchor = styled.a<Props>`
   background: transparent;
   transition: color 0.35s ease, background 0.35s ease, transform 0.35s ease,
     border-color 0.35s ease, box-shadow 0.35s ease;
-
+  white-space: nowrap;
   &:hover {
     color: ${({ scrolled }) => (scrolled ? "var(--text)" : "#fff")};
     background: ${({ scrolled }) =>
@@ -104,17 +185,76 @@ const NavAnchor = styled.a<Props>`
         : "none"};
     transform: ${({ scrolled }) => (scrolled ? "translateY(-1px)" : "none")};
   }
+
+  @media (max-width: 880px) {
+    padding: 12px 0;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+`;
+
+const MenuButton = styled.button<Props>`
+  display: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: ${({ scrolled }) =>
+    scrolled ? "1px solid rgba(255, 255, 255, 0.24)" : "none"};
+  background: transparent;
+  backdrop-filter: blur(6px);
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+
+  span {
+    width: 18px;
+    height: 2px;
+    background: #fff;
+    border-radius: 999px;
+  }
+
+  &:hover {
+    transform: translateY(-1px);
+    border-color: rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  @media (max-width: 880px) {
+    display: inline-flex;
+    margin-left: auto;
+  }
+`;
+
+const MobileMenu = styled.div<NavLinksProps>`
+  display: none;
+  width: 100%;
+  flex-direction: column;
+  overflow: hidden;
+
+  @media (max-width: 880px) {
+    display: flex;
+    flex-basis: 100%;
+    padding-top: ${({ open }) => (open ? "6px" : "0")};
+    border-top: ${({ open }) =>
+      open ? "1px solid rgba(255, 255, 255, 0.12)" : "0"};
+    max-height: ${({ open }) => (open ? "320px" : "0")};
+    opacity: ${({ open }) => (open ? 1 : 0)};
+    pointer-events: ${({ open }) => (open ? "auto" : "none")};
+    transition: max-height 0.35s ease, opacity 0.25s ease,
+      padding-top 0.25s ease, border-top 0.25s ease;
+  }
 `;
 
 const Brand = ({ scrolled }: Props) => (
-  <BrandWrap scrolled={scrolled}>
-    <BrandPhoto
+  <NameWrap scrolled={scrolled}>
+    <Avatar
       scrolled={scrolled}
       src="/assets/mypic.jpeg"
       alt="Giacomo portrait"
     />
-    <BrandText>
-      <BrandName scrolled={scrolled}>Giacomo Impoco</BrandName>
-    </BrandText>
-  </BrandWrap>
+    <Name scrolled={scrolled}>Giacomo Impoco</Name>
+  </NameWrap>
 );

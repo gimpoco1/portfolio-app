@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export const Hero = ({ experienceYears }: { experienceYears: number }) => (
   <HeroSection id="hero">
-    <Image src="/assets/pixelated name.png" alt="Giacomo's profile picture" />
+    <Image src="/assets/pixelatedName8.png" alt="Giacomo's profile picture" />
 
     <Eyebrow>Full-Stack Developer · {experienceYears}+ years</Eyebrow>
   </HeroSection>
