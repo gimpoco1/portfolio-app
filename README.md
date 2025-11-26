@@ -1,29 +1,11 @@
-# Portfolio App (React + Vite)
+# Giacomo Impoco's Portfolio
 
-Modernized portfolio site built with React 18, TypeScript, and Vite for fast local dev and production builds.
+Hey there! This cozy corner of the internet is my personal portfolio, packed with projects, experiments, and all the things that keep me curious. Wander around, enjoy the vibes, and get to know what I have been building.
 
-## Getting Started
+## Say Hello
 
-```bash
-npm install
-npm run dev        # start dev server at http://localhost:5173
-npm run build      # production build to dist/
-npm run preview    # preview the build
-npm run typecheck  # TypeScript without emitting
-```
+- LinkedIn: https://www.linkedin.com/in/giacomoimpoco/
+- GitHub: https://github.com/gimpoco1
+- Email: impoco126@gmail.com
 
-## Project Structure
-
-```text
-/public/assets   # static assets (images, PDF, favicon)
-/src
-  App.tsx       # page layout + sections
-  content.ts    # page data (links, projects, skills)
-  main.tsx      # React entry point
-  /styles       # CSS (migrated from the original site)
-```
-
-## Notes
-
-- Animations are handled by `aos` and initialized in `App.tsx`.
-- Global styling mirrors the original CSS, now imported through Vite for bundling and cache-busting.
+I am always open to collaborate—whether it is a wild idea, a polished product, or a weekend hack, I am game. Drop me a message and let us cook up something fun together!
