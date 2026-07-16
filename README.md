@@ -12,16 +12,14 @@ I am always open to collaborate-whether it is a wild idea, a polished product, o
 
 ## Live GitHub activity
 
-The hero loads the latest 12 months of contribution data through the Netlify
-Function at `/api/github-contributions`.
+The hero loads the latest 12 months of public and anonymized private contribution
+data through the Netlify Function at `/api/github-contributions`. Private
+repository names and other details are never requested or exposed, and no
+GitHub token is required.
 
-1. Create a read-only GitHub personal access token.
-2. In Netlify, open **Site configuration → Environment variables**.
-3. Add it as a secret value named `GITHUB_CONTRIBUTIONS_TOKEN`. If your plan
-   supports variable scopes, enable the **Functions** scope.
-4. Redeploy the project.
+For private activity to appear, enable **Private contributions** from the
+**Contribution settings** menu above the contribution calendar on your GitHub
+profile. Successful responses are cached by Netlify for one hour.
 
-The token is only read by the server-side function. Successful responses are
-cached by Netlify for one hour. To run the function locally, add the same value
-to `.env` and use `npx netlify dev`; the regular Vite server displays the
-GitHub fallback state instead.
+To run the function locally, use `npx netlify dev`; the regular Vite server
+displays the GitHub fallback state instead.
