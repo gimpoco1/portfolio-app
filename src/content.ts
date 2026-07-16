@@ -14,6 +14,11 @@ export type Project = {
   image: string;
   github?: string;
   demo?: string;
+  demoLabel?: string;
+  description?: string;
+  productFeatures?: string[];
+  technicalFeatures?: string[];
+  featured?: boolean;
 };
 
 export type EducationEntry = {
@@ -77,15 +82,55 @@ export const techStack = [
   "Django",
   "Docker",
   "Vite",
-  "Figma"
+  "Figma",
+  "iOS",
+  "Swift",
+  "Capacitor",
+  "Apple StoreKit",
+  "Supabase",
+  "Stripe",
+  "Google AdSense",
+  "Three.js",
 ];
 
 export const projects: Project[] = [
+  {
+    title: "Plink - Score Tracker",
+    image: "/assets/plink-banner.png",
+    github: "https://github.com/gimpoco1/plink",
+    demo: "https://plinkscore.com",
+    description:
+      "A cross-platform scorekeeping experience for card, board, and party games. Plink combines fast live scoring with flexible game rules, session history, player and team insights, and a production-ready freemium platform across web and iOS.",
+    productFeatures: [
+      "Live score tracking",
+      "Flexible win conditions",
+      "Players & teams",
+      "Timers & dice",
+      "Session history",
+      "Advanced statistics",
+      "Shareable results",
+      "Backup & restore",
+    ],
+    technicalFeatures: [
+      "iOS with Capacitor",
+      "Native Swift / StoreKit",
+      "Apple subscriptions",
+      "Stripe billing",
+      "Supabase auth & cloud sync",
+      "Google AdSense",
+      "Edge Functions & webhooks",
+      "Offline guest mode",
+      "React & TypeScript",
+      "Recharts analytics",
+    ],
+    featured: true,
+  },
   {
     title: "Building Construction Company",
     image: "/assets/mpkbuildings.png",
     github: "https://github.com/gimpoco1/mpk-buildings",
     demo: "https://mpkbuildings.com/",
+    demoLabel: "Visit site",
   },
   {
     title: "E-commerce Marketplace",

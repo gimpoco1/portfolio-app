@@ -11,7 +11,11 @@ export const Skills = () => (
       {techStack.map((skill) => (
         <TechCard key={skill}>
           <TechIcon>
-            <img src={iconForSkill(skill)} alt={`${skill} icon`} />
+            <img
+              src={iconForSkill(skill)}
+              alt={`${skill} icon`}
+              className={lightIconSkills.has(skill) ? "light-icon" : undefined}
+            />
           </TechIcon>
           <TechLabel>{skill}</TechLabel>
         </TechCard>
@@ -41,6 +45,14 @@ const iconSlugs: Record<string, string> = {
   Django: "django",
   Docker: "docker",
   Vite: "vite",
+  iOS: "apple",
+  Swift: "swift",
+  Capacitor: "capacitor",
+  "Apple StoreKit": "apple",
+  Supabase: "supabase",
+  Stripe: "stripe",
+  "Google AdSense": "googleadsense",
+  "Three.js": "threedotjs",
 };
 
 const iconForSkill = (skill: string) => {
@@ -52,6 +64,8 @@ const iconForSkill = (skill: string) => {
       .replace(/^-|-$/g, "");
   return `https://cdn.simpleicons.org/${slug}`;
 };
+
+const lightIconSkills = new Set(["iOS", "Apple StoreKit", "Three.js"]);
 
 const StackSubtitle = styled.p`
   margin: 4px 0 0;
@@ -75,12 +89,14 @@ const TechCard = styled.div`
   position: relative;
   border-radius: 18px;
   padding: 18px 14px;
-  background: radial-gradient(
-      circle at 20% 20%,
-      rgba(255, 255, 255, 0.06),
-      rgba(255, 255, 255, 0.02)
-    );
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  min-height: 90px;
+  background: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.16),
+      rgba(255, 255, 255, 0.07)
+    ),
+    rgba(18, 16, 28, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35),
     inset 0 1px 0 rgba(255, 255, 255, 0.12);
   display: flex;
@@ -120,8 +136,8 @@ const TechCard = styled.div`
 `;
 
 const TechIcon = styled.div`
-  width: 32px;
-  height: 32px;
+  width: 38px;
+  height: 38px;
   display: grid;
   place-items: center;
   z-index: 1;
@@ -131,10 +147,21 @@ const TechIcon = styled.div`
     height: 100%;
     object-fit: contain;
   }
+
+  .light-icon {
+    filter: invert(1) brightness(1.2);
+  }
 `;
 
 const TechLabel = styled.div`
   z-index: 1;
+  width: 100%;
+  min-height: 20px;
+  margin-top: auto;
+  display: grid;
+  place-items: end center;
+  text-align: center;
+  line-height: 1.15;
   font-weight: 700;
   letter-spacing: -0.01em;
 `;

@@ -33,22 +33,26 @@ export const About = () => (
     <AboutBody>
       <GlowAccent aria-hidden="true" />
       <AboutCopy>
-        Originally from Italy, I moved out when I was 17 and spent almost 7
-        years soaking up London life. These days I'm based in sunny Barcelona,
-        swapping rain for tapas and sea breezes. I kicked off my career in
-        customer service—waiting tables, cooking, then supporting customers with
-        tech and appliances for John Lewis—so I'm wired to listen and solve what
-        people need.
+        I grew up in Italy, left home at 17, and spent nearly seven years in
+        London before trading grey skies for Barcelona. Before software, I
+        worked everywhere from restaurant kitchens to John Lewis tech support.
+        It taught me something I still bring to every product: pay attention,
+        stay curious, and solve the problem the person in front of you actually
+        has.
         <br />
         <br />
-        I always had the itch to build software, and now I focus on frontend—
-        making interfaces that feel fast, fun, and human. I've also got backend
-        chops, so I think through the whole stack before I code. I'm a learning
-        sponge who keeps up with new patterns and tools, then puts them to work.
-        I thrive in fast-paced, collaborative teams and I'm the person who
-        quietly keeps delivery on track.
+        Today I build full-stack products, moving from interfaces and APIs to
+        data, infrastructure, and everything that connects them. I care about
+        the details people feel-speed, clarity, motion, and thoughtful
+        interactions-but just as much about the reliable engineering behind
+        them. I enjoy turning rough ideas into polished software and seeing the
+        whole product, not only one layer of it.
         <br />
-        <br /> When I'm not coding, I'm probably on a long walk, biking
+        <br />
+        I’m at my best with an idea, a rough edge, and room to figure things
+        out. I enjoy collaborative teams, bring curiosity to unfamiliar
+        problems, and care about shipping work that is both useful and
+        memorable. Away from the screen, you’ll usually find me walking, cycling
         somewhere new, or playing the piano.
       </AboutCopy>
     </AboutBody>
