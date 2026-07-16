@@ -4,6 +4,7 @@ import { experienceStartYear } from "./content";
 import { NavBar } from "./components/NavBar";
 import { Hero } from "./components/Hero";
 import { About } from "./components/About";
+import { AIWorkflow } from "./components/AIWorkflow";
 import { Skills } from "./components/Skills";
 import { Projects } from "./components/Projects";
 import { Education } from "./components/Education";
@@ -148,6 +149,7 @@ const App = () => {
         <Content>
           <Hero experienceYears={experienceYears} />
           <About />
+          <AIWorkflow />
           <Skills />
           <Projects />
           <Education />
