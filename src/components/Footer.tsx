@@ -307,6 +307,50 @@ const Copyright = styled.div`
   font-size: 13px;
 `;
 
+const FooterMeta = styled.div`
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+`;
+
+const FiverrLink = styled.a`
+  padding: 6px 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid rgba(29, 191, 115, 0.25);
+  border-radius: 999px;
+  color: #b8d9c8;
+  background: rgba(29, 191, 115, 0.07);
+  font-size: 12px;
+  font-weight: 650;
+  transition: color 180ms ease, border-color 180ms ease,
+    background 180ms ease;
+
+  &:hover {
+    color: #e9fff2;
+    border-color: rgba(29, 191, 115, 0.5);
+    background: rgba(29, 191, 115, 0.13);
+  }
+
+  &:focus-visible {
+    outline: 2px solid #1dbf73;
+    outline-offset: 3px;
+  }
+`;
+
+const FiverrLogo = styled.img`
+  width: 40px;
+  height: 20px;
+  display: block;
+  flex: 0 0 auto;
+  margin-top: -1px;
+  margin-right: -4px;
+  transform: scale(1.8);
+  transform-origin: center;
+`;
+
 export const Footer = () => (
   <FooterBar id="contact">
     <FooterShell>
@@ -391,7 +435,22 @@ export const Footer = () => (
 
       <Copyright>
         <span>© {new Date().getFullYear()} Giacomo Impoco</span>
-        <span>Designed and built with care in Barcelona</span>
+        <FooterMeta>
+          <FiverrLink
+            href="https://www.fiverr.com/s/ljqezlR"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="View my services on Fiverr (opens in a new tab)"
+          >
+            <FiverrLogo
+              src="https://cdn.simpleicons.org/fiverr/1DBF73"
+              alt=""
+              aria-hidden="true"
+            />
+          Services ↗
+          </FiverrLink>
+          <span>Designed and built with care in Barcelona</span>
+        </FooterMeta>
       </Copyright>
     </FooterShell>
   </FooterBar>

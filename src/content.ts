@@ -1,6 +1,7 @@
 export type NavLink = {
   label: string;
   href: string;
+  newTab?: boolean;
 };
 
 export type SocialLink = {
@@ -39,13 +40,15 @@ export type GradientPreset = {
 };
 
 export const navLinks: NavLink[] = [
-  { label: "Download CV", href: "/assets/GiacomoImpocoCV2025.pdf" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/giacomoimpoco/" },
-  { label: "GitHub", href: "https://github.com/gimpoco1" },
   {
-    label: "Email",
-    href: "https://mail.google.com/mail/?view=cm&fs=1&to=impoco126@gmail.com",
+    label: "Download CV",
+    href: "/assets/GiacomoImpocoCV2025.pdf",
+    newTab: true,
   },
+  { label: "About", href: "#about" },
+  { label: "Skills", href: "#experience" },
+  { label: "Projects", href: "#projects" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export const socialLinks: SocialLink[] = [

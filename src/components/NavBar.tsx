@@ -5,6 +5,7 @@ import { navLinks } from "../content";
 type Props = { scrolled?: boolean };
 type NavLinksProps = Props & { open?: boolean };
 type NavWrapProps = Props & { expanded?: boolean };
+type BrandProps = Props & { onClick?: () => void };
 
 export const NavBar = ({ scrolled = false }: Props) => {
   const [open, setOpen] = useState(false);
@@ -40,15 +41,15 @@ export const NavBar = ({ scrolled = false }: Props) => {
   return (
     <NavWrap scrolled={scrolled} expanded={expanded}>
       <TopRow>
-        <Brand scrolled={scrolled} />
+        <Brand scrolled={scrolled} onClick={closeMenu} />
         <NavLinks scrolled={scrolled}>
           {navLinks.map((link) => (
             <NavAnchor
               scrolled={scrolled}
               key={link.label}
               href={link.href}
-              target="_blank"
-              rel="noreferrer"
+              target={link.newTab ? "_blank" : undefined}
+              rel={link.newTab ? "noreferrer" : undefined}
               onClick={closeMenu}
             >
               {link.label}
@@ -70,8 +71,8 @@ export const NavBar = ({ scrolled = false }: Props) => {
           <NavAnchor
             key={`mobile-${link.label}`}
             href={link.href}
-            target="_blank"
-            rel="noreferrer"
+            target={link.newTab ? "_blank" : undefined}
+            rel={link.newTab ? "noreferrer" : undefined}
             onClick={closeMenu}
           >
             {link.label}
@@ -84,7 +85,7 @@ export const NavBar = ({ scrolled = false }: Props) => {
 
 const NavWrap = styled.div<NavWrapProps>`
   width: 100%;
-  max-width: ${({ scrolled }) => (scrolled ? "75%" : "100%")};
+  max-width: ${({ scrolled }) => (scrolled ? "90%" : "100%")};
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -107,7 +108,7 @@ const NavWrap = styled.div<NavWrapProps>`
   top: ${({ scrolled }) => (scrolled ? "16px" : "22px")};
   z-index: 10;
 
-  @media (max-width: 880px) {
+  @media (max-width: 1050px) {
     padding: 12px;
     flex-direction: column;
     align-items: stretch;
@@ -124,7 +125,7 @@ const TopRow = styled.div`
   gap: 18px;
 `;
 
-const NameWrap = styled.div<Props>`
+const NameWrap = styled.a<Props>`
   display: inline-flex;
   align-items: center;
   gap: ${({ scrolled }) => (scrolled ? "10px" : "6px")};
@@ -133,6 +134,12 @@ const NameWrap = styled.div<Props>`
   color: ${({ scrolled }) => (scrolled ? "#ffffff" : "#f5f3ff")};
   transition: color 0.35s ease, gap 0.35s ease;
   flex-shrink: 0;
+
+  &:focus-visible {
+    outline: 2px solid #8de9ff;
+    outline-offset: 4px;
+    border-radius: 999px;
+  }
 `;
 
 const Avatar = styled.img<Props>`
@@ -157,10 +164,10 @@ const NavLinks = styled.div<Props>`
   display: flex;
   align-items: center;
   margin-left: auto;
-  gap: ${({ scrolled }) => (scrolled ? "0" : "50px")};
+  gap: ${({ scrolled }) => (scrolled ? "0" : "clamp(18px, 2.4vw, 32px)")};
   transition: gap 0.35s ease;
 
-  @media (max-width: 880px) {
+  @media (max-width: 1050px) {
     display: none;
   }
 `;
@@ -185,7 +192,7 @@ const NavAnchor = styled.a<Props>`
         : "none"};
     transform: ${({ scrolled }) => (scrolled ? "translateY(-1px)" : "none")};
   }
-  @media (max-width: 880px) {
+  @media (max-width: 1050px) {
     padding: 12px 0;
     width: 100%;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -224,7 +231,7 @@ const MenuButton = styled.button<Props>`
     background: rgba(255, 255, 255, 0.12);
   }
 
-  @media (max-width: 880px) {
+  @media (max-width: 1050px) {
     display: inline-flex;
   }
 `;
@@ -235,12 +242,12 @@ const MobileMenu = styled.div<NavLinksProps>`
   flex-direction: column;
   overflow: hidden;
 
-  @media (max-width: 880px) {
+  @media (max-width: 1050px) {
     display: flex;
     flex-basis: 100%;
     padding-top: ${({ open }) => (open ? "6px" : "0")};
 
-    max-height: ${({ open }) => (open ? "320px" : "0")};
+    max-height: ${({ open }) => (open ? "420px" : "0")};
     opacity: ${({ open }) => (open ? 1 : 0)};
     pointer-events: ${({ open }) => (open ? "auto" : "none")};
     transition: max-height 0.35s ease, opacity 0.25s ease,
@@ -248,8 +255,13 @@ const MobileMenu = styled.div<NavLinksProps>`
   }
 `;
 
-const Brand = ({ scrolled }: Props) => (
-  <NameWrap scrolled={scrolled}>
+const Brand = ({ scrolled, onClick }: BrandProps) => (
+  <NameWrap
+    href="#hero"
+    scrolled={scrolled}
+    onClick={onClick}
+    aria-label="Back to the top"
+  >
     <Avatar
       scrolled={scrolled}
       src="/assets/mypic.jpeg"

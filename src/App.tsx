@@ -52,6 +52,11 @@ const globalStyles = css`
     scroll-behavior: smooth;
   }
 
+  main [id],
+  footer[id] {
+    scroll-margin-top: 112px;
+  }
+
   .liquid-ether-container {
     position: fixed;
     inset: 0;
